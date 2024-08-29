@@ -27,3 +27,9 @@ npm run dev
 ```sh
 npm run build
 ```
+
+
+watching the video at current time
+
+https://youtu.be/JDcfOVc4Uww?t=596
+
