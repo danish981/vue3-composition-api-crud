@@ -48,8 +48,6 @@ const handleSubmit = async () => {
         </button>
       </div>
 
-
-
       <!-- we can use router-link to go back -->
       <!-- but we have used this  -->
       <div class="p-4">

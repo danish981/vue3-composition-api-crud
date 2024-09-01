@@ -10,7 +10,13 @@ const handleSubmit = async () => {
       <h1 class="text-3xl font-bold text-white">Add Student</h1>
     </div>
 
-    <form action="" @submit.prevent="handleSubmit" autocomplete="off" class="w-full" id="addStudentForm">
+    <form
+      action=""
+      @submit.prevent="handleSubmit"
+      autocomplete="off"
+      class="w-full"
+      id="addStudentForm"
+    >
       <div class="p-4">
         <label for="id" class="block text-sm font-bold mb-2">ID</label>
         <input
