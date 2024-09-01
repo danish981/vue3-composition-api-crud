@@ -33,6 +33,6 @@ watching the video at current time
 
 
 
-creating and addimg dummy data for now
+Add form made fucntional with dummy data
 
-https://youtu.be/JDcfOVc4Uww?t=2415
+https://youtu.be/JDcfOVc4Uww?t=2615

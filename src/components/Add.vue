@@ -4,7 +4,7 @@ import { reactive } from "vue";
 const formData = reactive({ name: "", email: "" });
 
 const handleSubmit = async () => {
-  console.log(formData);
+  console.table(formData);
 };
 </script>
 
@@ -20,7 +20,9 @@ const handleSubmit = async () => {
         <input
           type="text"
           id="name"
-          v-model="formData.name"
+          placeholder="Enter name"
+          v-model.trim="formData.name"
+          required
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
@@ -30,7 +32,9 @@ const handleSubmit = async () => {
         <input
           type="email"
           id="email"
-          v-model="formData.email"
+          placeholder="Enter email"
+          v-model.trim="formData.email"
+          required
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
@@ -44,6 +48,10 @@ const handleSubmit = async () => {
         </button>
       </div>
 
+
+
+      <!-- we can use router-link to go back -->
+      <!-- but we have used this  -->
       <div class="p-4">
         <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
