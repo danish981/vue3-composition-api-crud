@@ -35,4 +35,4 @@ watching the video at current time
 
 creating and addimg dummy data for now
 
-https://youtu.be/JDcfOVc4Uww?t=1884
+https://youtu.be/JDcfOVc4Uww?t=2415
