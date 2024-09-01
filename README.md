@@ -31,4 +31,7 @@ npm run build
 
 watching the video at current time
 
-https://youtu.be/JDcfOVc4Uww?t=1028
+started creating view parts
+
+
+https://youtu.be/JDcfOVc4Uww?t=1737
