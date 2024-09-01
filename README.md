@@ -31,5 +31,4 @@ npm run build
 
 watching the video at current time
 
-https://youtu.be/JDcfOVc4Uww?t=596
-
+https://youtu.be/JDcfOVc4Uww?t=1028
