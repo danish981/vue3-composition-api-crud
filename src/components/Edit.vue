@@ -1,9 +1,10 @@
 <script setup>
-  import {RouterView } from 'vue-router';
 </script>
 
 <template>
-  <RouterView />
+  <h1 class="text-3xl font-bold underline">
+    Edit student
+  </h1>
 </template>
 
 <style scoped>
