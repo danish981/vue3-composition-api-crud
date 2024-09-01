@@ -1,6 +1,10 @@
 <script setup>
 import { EyeIcon, PencilIcon, TrashIcon, UserPlusIcon } from "@heroicons/vue/24/solid";
 import { RouterLink } from "vue-router";
+
+const deleteStudent = async (id) => {
+  console.log(id);
+};
 </script>
 
 <template>
@@ -8,7 +12,7 @@ import { RouterLink } from "vue-router";
     <div class="flex items-center justify-between">
       <h1 class="text-4xl md:text-5xl font-extrabold text-white">Student List</h1>
 
-      <RouterLink :to="{ name : 'Add' }">
+      <RouterLink :to="{ name: 'Add' }">
         <button
           class="flex items-center bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg shadow transition-all"
         >
@@ -17,7 +21,6 @@ import { RouterLink } from "vue-router";
         </button>
       </RouterLink>
     </div>
-
   </div>
 
   <div class="mt-6 overflow-x-auto">
@@ -38,19 +41,24 @@ import { RouterLink } from "vue-router";
           <td class="py-3 px-4">5XUeh@example.com</td>
 
           <td class="py-3 px-4 text-center flex justify-center space-x-2">
-            <button
-              class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded shadow transition-all"
-            >
-              <EyeIcon class="h-5 w-5" />
-            </button>
+            <router-link :to="{ name: 'View', params: { id: 1 } }">
+              <button
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded shadow transition-all"
+              >
+                <EyeIcon class="h-5 w-5" />
+              </button>
+            </router-link>
+
+            <router-link :to="{ name: 'Edit', params: { id: 1 } }">
+              <button
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded shadow transition-all"
+              >
+                <PencilIcon class="h-5 w-5" />
+              </button>
+            </router-link>
 
             <button
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded shadow transition-all"
-            >
-              <PencilIcon class="h-5 w-5" />
-            </button>
-
-            <button
+              @click="deleteStudent(1)"
               class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded shadow transition-all"
             >
               <TrashIcon class="h-5 w-5" />
