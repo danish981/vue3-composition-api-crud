@@ -91,6 +91,6 @@ This simple hook script ensures that you always get a warning before pushing cha
 
 ---------
  
-Add form made fucntional with dummy data
+Making request to the server, getting the data and displaying it in the UI by using loops
 
-https://youtu.be/JDcfOVc4Uww?t=3687
+https://youtu.be/JDcfOVc4Uww?t=4296

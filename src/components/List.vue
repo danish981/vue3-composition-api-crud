@@ -2,6 +2,15 @@
 import { EyeIcon, PencilIcon, TrashIcon, UserPlusIcon } from "@heroicons/vue/24/solid";
 import { RouterLink } from "vue-router";
 
+import useStudents from "@/composables/studentApi";
+import { onMounted } from "vue";
+
+const { students, error, getAllStudents } = useStudents();
+
+onMounted(() => {
+  getAllStudents();
+});
+
 const deleteStudent = async (id) => {
   console.log(id);
 };
