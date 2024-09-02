@@ -34,7 +34,6 @@ touch pre-push
 
 Open the `pre-push` file in your favorite text editor and add the following script:
 
-
 ```bash
 #!/bin/bash
 # Get the name of the branch you are pushing to
@@ -72,25 +71,23 @@ Now, when you try to push to the `master` branch, the hook will trigger and prom
 2. You commit those changes.
 3. You attempt to push to `master`:
 
-    ```sh
-    git push origin master
-    ```
+   ```sh
+   git push origin master
+   ```
 
 4. You will see the prompt:
 
-    ```
-    You are about to push to the master branch.
-    Are you sure you want to continue? (yes/no):
-    ```
+   ```
+   You are about to push to the master branch.
+   Are you sure you want to continue? (yes/no):
+   ```
 
 5. If you type `yes`, the push proceeds. If you type `no`, the push is aborted.
 
 This simple hook script ensures that you always get a warning before pushing changes directly to `master`, helping you avoid accidental updates.
 
+---
 
-
----------
- 
 Making request to the server, getting the data and displaying it in the UI by using loops
 
 https://youtu.be/JDcfOVc4Uww?t=4296
