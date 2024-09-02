@@ -44,13 +44,13 @@ const deleteStudent = async (id) => {
       </thead>
 
       <tbody>
-        <tr class="border-b hover:bg-slate-100 transition">
-          <td class="py-3 px-4">1</td>
-          <td class="py-3 px-4">John Doe</td>
-          <td class="py-3 px-4">5XUeh@example.com</td>
+        <tr class="border-b hover:bg-slate-100 transition" v-for="student in students" :key="student.id">
+          <td class="py-3 px-4"> {{ student.id }} </td>
+          <td class="py-3 px-4"> {{ student.name }} </td>
+          <td class="py-3 px-4"> {{ student.email }} </td>
 
           <td class="py-3 px-4 text-center flex justify-center space-x-2">
-            <router-link :to="{ name: 'View', params: { id: 1 } }">
+            <router-link :to="{ name: 'View', params: { id: student.id } }">
               <button
                 class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded shadow transition-all"
               >
@@ -58,7 +58,7 @@ const deleteStudent = async (id) => {
               </button>
             </router-link>
 
-            <router-link :to="{ name: 'Edit', params: { id: 1 } }">
+            <router-link :to="{ name: 'Edit', params: { id: student.id } }">
               <button
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded shadow transition-all"
               >
@@ -67,7 +67,7 @@ const deleteStudent = async (id) => {
             </router-link>
 
             <button
-              @click="deleteStudent(1)"
+              @click="deleteStudent(student.id)"
               class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded shadow transition-all"
             >
               <TrashIcon class="h-5 w-5" />
