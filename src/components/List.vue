@@ -44,17 +44,23 @@ const deleteStudent = async (id) => {
       </thead>
 
       <tbody>
+        <!-- we have destructured the output from the useStudents, we can use it directly -->
+        <!-- this is other approach we have used -->
         <tr
           class="border-b hover:bg-slate-100 transition"
-          v-for="student in students"
-          :key="student.id"
+          v-for="({ id, name, email }, i) in students"
+          :key="id"
         >
-          <td class="py-3 px-4">{{ student.id }}</td>
-          <td class="py-3 px-4">{{ student.name }}</td>
-          <td class="py-3 px-4">{{ student.email }}</td>
+          <!-- array starts from 0, so we have incremented this -->
+          <!-- i is just a counter, not the actually array id -->
+          <td class="py-3 px-4">{{ ++i }}</td>
+
+          <!-- as we have destructued the student, we can use its properties directly -->
+          <td class="py-3 px-4">{{ name }}</td>
+          <td class="py-3 px-4">{{ email }}</td>
 
           <td class="py-3 px-4 text-center flex justify-center space-x-2">
-            <router-link :to="{ name: 'View', params: { id: student.id } }">
+            <router-link :to="{ name: 'View', params: { id: id } }">
               <button
                 class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded shadow transition-all"
               >
@@ -62,7 +68,7 @@ const deleteStudent = async (id) => {
               </button>
             </router-link>
 
-            <router-link :to="{ name: 'Edit', params: { id: student.id } }">
+            <router-link :to="{ name: 'Edit', params: { id: id } }">
               <button
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded shadow transition-all"
               >
@@ -71,7 +77,7 @@ const deleteStudent = async (id) => {
             </router-link>
 
             <button
-              @click="deleteStudent(student.id)"
+              @click="deleteStudent(id)"
               class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded shadow transition-all"
             >
               <TrashIcon class="h-5 w-5" />
