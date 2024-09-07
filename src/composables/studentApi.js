@@ -7,7 +7,7 @@ import axios from "axios";
 // write compostable function to get all students, the function name should be useStudents, `use(EntityName)`
 export default function useStudents() {
 
-    const url = "http://localhost:3000/students";
+    const url = "http://localhost:4000/students";
     const students = ref([]);
     const error = ref(null);
 

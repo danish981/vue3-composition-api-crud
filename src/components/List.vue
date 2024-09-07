@@ -44,10 +44,14 @@ const deleteStudent = async (id) => {
       </thead>
 
       <tbody>
-        <tr class="border-b hover:bg-slate-100 transition" v-for="student in students" :key="student.id">
-          <td class="py-3 px-4"> {{ student.id }} </td>
-          <td class="py-3 px-4"> {{ student.name }} </td>
-          <td class="py-3 px-4"> {{ student.email }} </td>
+        <tr
+          class="border-b hover:bg-slate-100 transition"
+          v-for="student in students"
+          :key="student.id"
+        >
+          <td class="py-3 px-4">{{ student.id }}</td>
+          <td class="py-3 px-4">{{ student.name }}</td>
+          <td class="py-3 px-4">{{ student.email }}</td>
 
           <td class="py-3 px-4 text-center flex justify-center space-x-2">
             <router-link :to="{ name: 'View', params: { id: student.id } }">
