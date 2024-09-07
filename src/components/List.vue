@@ -43,6 +43,8 @@ const deleteStudent = async (id) => {
         </tr>
       </thead>
 
+      <!-- create a check here that if error does not exist, then show the data -->
+      <!-- otherwise show a nice userfriendly error message in the swal or toastr message -->
       <tbody>
         <!-- we have destructured the output from the useStudents, we can use it directly -->
         <!-- this is other approach we have used -->

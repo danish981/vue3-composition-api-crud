@@ -1,5 +1,21 @@
-<script setup></script>
+<script setup>
+import useStudents from "@/composables/studentApi";
+import { onMounted } from "vue";
 
+import { useRoute } from "vue-router";
+
+// students (actually now a single student data ref actually now)
+
+const { students, error, getSingleStudentData } = useStudents();
+
+const route = useRoute();
+
+onMounted(() => {
+  getSingleStudentData(route.params.id);
+});
+</script>
+
+<!-- this component is used to show data of single student , the one student only -->
 <template>
   <div class="mt-6 overflow-x-auto">
     <table class="min-w-full bg-white shadow rounded-lg">
@@ -13,9 +29,9 @@
 
       <tbody>
         <tr class="border-b hover:bg-slate-100 transition">
-          <td class="py-3 px-4">1</td>
-          <td class="py-3 px-4">John Doe</td>
-          <td class="py-3 px-4">5XUeh@example.com</td>
+          <td class="py-3 px-4">{{ students.id }}</td>
+          <td class="py-3 px-4">{{ students.name }}</td>
+          <td class="py-3 px-4">{{ students.email }}</td>
         </tr>
       </tbody>
     </table>
