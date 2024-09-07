@@ -13,7 +13,7 @@ export default function useStudents() {
     error.value = null;
     try {
       const response = await axios.get(url);
-      console.log(response.data);
+      //   console.log(response.data);
       students.value = response.data;
       return response.data;
     } catch (exceptionError) {
