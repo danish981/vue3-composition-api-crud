@@ -7,6 +7,8 @@ export default function useStudents() {
   const url = "http://localhost:4000/students/";
   const students = ref([]);
   const error = ref(null);
+  const statusCode = ref("");
+  const deleteError = ref("");
 
   const validateIfEmailAlreadyExists = () => {
     //todo : add validattions for the email
@@ -107,8 +109,6 @@ export default function useStudents() {
       console.log(exceptionError);
       error.value = exceptionError;
     }
-
-    
   };
 
   const deleteStudent = async (id) => {
@@ -126,17 +126,21 @@ export default function useStudents() {
 
       const response = await axios(config);
       students.value = response.data;
-      console.log(students.value);
+      statusCode.value = response.status;
+      // console.log(students.value);
       return students.value;
     } catch (exceptionError) {
       console.log(exceptionError);
-      error.value = exceptionError;
+      // error.value = exceptionError; // if there is already an error, and error is being used in the template for second time, this wont be printed
+      deleteError.value = exceptionError;
     }
   };
 
   return {
     students, // everything we call a method, we store the response into this reactive variable and fetch this from the import from component
     error,
+    statusCode,
+    deleteError,
     getAllStudents,
     getSingleStudentData,
     addNewStudent,

@@ -5,7 +5,14 @@ import { RouterLink } from "vue-router";
 import useStudents from "@/composables/studentApi";
 import { onMounted } from "vue";
 
-const { students, error, getAllStudents, deleteStudent } = useStudents();
+const {
+  students,
+  error,
+  statusCode,
+  deleteError,
+  getAllStudents,
+  deleteStudent,
+} = useStudents();
 
 onMounted(() => {
   getAllStudents();
@@ -105,6 +112,26 @@ const handleDeleteStudent = async (id) => {
         </tr>
       </tbody>
     </table>
+
+    <!-- if the student is deleted successfully -->
+    <div
+      v-if="statusCode === 200"
+      class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
+      role="alert"
+    >
+      <strong class="font-bold">Success!</strong>
+      <span class="block sm:inline">Student deleted successfully.</span>
+    </div>
+
+    <!-- we are catching the error from exception error so that we are extracting the message from the reactive error property -->
+    <div
+      v-if="deleteError"
+      class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+      role="alert"
+    >
+      <strong class="font-bold">Error!</strong>
+      <span class="block sm:inline">Unable to delete: {{ deleteError.message }}</span>
+    </div>
   </div>
 </template>
 
