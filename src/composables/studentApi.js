@@ -48,7 +48,7 @@ export default function useStudents() {
       return response.data;
     } catch (exceptionError) {
       console.log(exceptionError);
-      error.value = exceptionError
+      error.value = exceptionError;
     }
   };
 
@@ -76,13 +76,37 @@ export default function useStudents() {
       return students.value;
     } catch (exceptionError) {
       console.log(exceptionError);
-      error.value = exceptionError
+      error.value = exceptionError;
     }
   };
 
-  // updating a student
-  const editStudentData = async (id) => {
-    // logic for updating a student by searching the record wrt id provided
+  // updating a student, id that holds the id of particular record, and formdata is the request data
+  const updateStudentData = async (id, formData) => {
+    students.value = [];
+    error.value = null;
+
+    // see the json-server docs for udpating the data
+    try {
+      const config = {
+        method: "PUT",
+        url: url + id,
+        headers: {
+          "Content-type": "Application/json",
+        },
+        data: JSON.stringify(formData),
+      };
+
+      const response = await axios(config);
+      // todo: create validation that name cannot be duplciated if editied or added somehow
+
+      students.value = response.data;
+
+      console.log(response);
+      return students.value;
+    } catch (exceptionError) {
+      console.log(exceptionError);
+      error.value = exceptionError;
+    }
   };
 
   return {
@@ -91,6 +115,7 @@ export default function useStudents() {
     getAllStudents,
     getSingleStudentData,
     addNewStudent,
-    editStudentData,
+    updateStudentData,
+    updateStudentData,
   };
 }

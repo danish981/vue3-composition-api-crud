@@ -13,6 +13,8 @@ const route = useRoute();
 onMounted(() => {
   getSingleStudentData(route.params.id);
 });
+
+
 </script>
 
 <!-- this component is used to show data of single student , the one student only -->

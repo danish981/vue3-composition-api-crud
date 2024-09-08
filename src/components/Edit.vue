@@ -1,7 +1,21 @@
 <script setup>
+import useStudents from "@/composables/studentApi";
+import router from "@/router";
+import { onMounted } from "vue";
+
+const { students, error, getSingleStudentData, updateStudentData } = useStudents();
+
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+
 const handleSubmit = async () => {
-  console.table("handle submit method triggered");
+  updateStudentData(route.params.id, students.value);
 };
+
+onMounted(() => {
+  getSingleStudentData(route.params.id);
+});
 </script>
 
 <template>
@@ -20,9 +34,11 @@ const handleSubmit = async () => {
       <div class="p-4">
         <label for="id" class="block text-sm font-bold mb-2">ID</label>
         <input
-          type="number"
+          type="text"
           key=""
           readonly
+          disabled
+          v-model.trim="students.id"
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
 
@@ -32,6 +48,7 @@ const handleSubmit = async () => {
           id="name"
           placeholder="Enter name"
           required
+          v-model.trim="students.name"
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
@@ -43,6 +60,7 @@ const handleSubmit = async () => {
           id="email"
           placeholder="Enter email"
           required
+          v-model.trim="students.email"
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
