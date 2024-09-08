@@ -43,12 +43,12 @@ Cookies, sessions, cache, and local storage are key concepts in web development,
 ---
 
 ### Summary of Differences:
-| Feature           | Cookies            | Sessions           | Cache            | Local Storage     |
-|-------------------|--------------------|--------------------|------------------|-------------------|
-| **Storage Location** | Client            | Server             | Client           | Client            |
-| **Size Limit**     | ~4KB               | Varies (Server-side) | Depends on file  | 5-10MB            |
-| **Lifetime**       | Set by expiration  | Until session ends | Defined by cache headers | Persistent (until deleted) |
-| **Accessible By**  | Client & Server    | Server             | Browser          | Client (JavaScript)|
-| **Use Case**       | User sessions, preferences | User session tracking | Speeding up load times | Storing app data (e.g., preferences) | 
+| Feature              | Cookies                    | Sessions              | Cache                    | Local Storage                        |
+|----------------------|----------------------------|-----------------------|--------------------------|--------------------------------------|
+| **Storage Location** | Client                     | Server                | Client                   | Client                               |
+| **Size Limit**       | ~4KB                       | Varies (Server-side)  | Depends on file          | 5-10MB                               |
+| **Lifetime**         | Set by expiration          | Until session ends    | Defined by cache headers | Persistent (until deleted)           |
+| **Accessible By**    | Client & Server            | Server                | Browser                  | Client (JavaScript)                  |
+| **Use Case**         | User sessions, preferences | User session tracking | Speeding up load times   | Storing app data (e.g., preferences) | 
 
 Each has its role in managing data between client and server, contributing to smoother and more personalized user experiences.

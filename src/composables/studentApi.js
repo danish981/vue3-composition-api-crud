@@ -145,7 +145,6 @@ export default function useStudents() {
     getSingleStudentData,
     addNewStudent,
     updateStudentData,
-    updateStudentData,
     deleteStudent,
   };
 }

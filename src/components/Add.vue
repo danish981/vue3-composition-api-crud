@@ -2,6 +2,7 @@
 import { reactive } from "vue";
 
 import useStudents from "@/composables/studentApi";
+import {createWebHistory as $router} from "vue-router";
 
 const { students, error, addNewStudent } = useStudents();
 
