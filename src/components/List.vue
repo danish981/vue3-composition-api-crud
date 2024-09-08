@@ -5,14 +5,23 @@ import { RouterLink } from "vue-router";
 import useStudents from "@/composables/studentApi";
 import { onMounted } from "vue";
 
-const { students, error, getAllStudents } = useStudents();
+const { students, error, getAllStudents, deleteStudent } = useStudents();
 
 onMounted(() => {
   getAllStudents();
 });
 
-const deleteStudent = async (id) => {
-  console.log(id);
+const handleDeleteStudent = async (id) => {
+  if (!window.confirm("Are you sure you want to delete this record? ")) {
+    return;
+  }
+
+  await deleteStudent(id);
+
+  console.log("deleted" + id);
+
+  await getAllStudents();
+
   // todo : we will use await and delete method here to delete ther user
 };
 </script>
@@ -80,7 +89,7 @@ const deleteStudent = async (id) => {
             </router-link>
 
             <button
-              @click="deleteStudent(id)"
+              @click="handleDeleteStudent(id)"
               class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded shadow transition-all"
             >
               <TrashIcon class="h-5 w-5" />

@@ -109,6 +109,29 @@ export default function useStudents() {
     }
   };
 
+  const deleteStudent = async (id) => {
+    students.value = [];
+    error.value = null;
+
+    try {
+      const config = {
+        method: "DELETE",
+        url: url + id,
+        headers: {
+          "Content-type": "Application/json",
+        },
+      };
+
+      const response = await axios(config);
+      students.value = response.data;
+      console.log(students.value);
+      return students.value;
+    } catch (exceptionError) {
+      console.log(exceptionError);
+      error.value = exceptionError;
+    }
+  };
+
   return {
     students, // everything we call a method, we store the response into this reactive variable and fetch this from the import from component
     error,
@@ -117,5 +140,6 @@ export default function useStudents() {
     addNewStudent,
     updateStudentData,
     updateStudentData,
+    deleteStudent,
   };
 }
