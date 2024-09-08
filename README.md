@@ -91,7 +91,9 @@ This simple hook script ensures that you always get a warning before pushing cha
 Making request to the server, getting the data and displaying it in the UI by using loops
 
 
-file downloaded offline, the currrent tile is 1:24
+file downloaded offline, the currrent tile is 1:33
 
+
+**what we are doing currently** : *adding a new student done with post request*
 
 https://youtu.be/JDcfOVc4Uww?t=4296

@@ -13,6 +13,7 @@ onMounted(() => {
 
 const deleteStudent = async (id) => {
   console.log(id);
+  // todo : we will use await and delete method here to delete ther user
 };
 </script>
 

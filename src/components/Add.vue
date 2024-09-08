@@ -1,10 +1,14 @@
 <script setup>
 import { reactive } from "vue";
 
+import useStudents from "@/composables/studentApi";
+
+const { students, error, addNewStudent } = useStudents();
+
 const formData = reactive({ name: "", email: "" });
 
 const handleSubmit = async () => {
-  console.table(formData);
+  await addNewStudent(formData);
 };
 </script>
 
