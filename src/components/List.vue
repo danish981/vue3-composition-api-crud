@@ -43,6 +43,15 @@ const handleDeleteStudent = async (id) => {
   </div>
 
   <div class="mt-6 overflow-x-auto">
+    <div v-if="error">
+      <div
+        class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4"
+      >
+        <strong class="font-bold">Error: </strong>
+        <span class="block sm:inline">{{ error.message }}</span>
+      </div>
+    </div>
+
     <table class="min-w-full bg-white shadow rounded-lg">
       <thead class="bg-slate-700 text-white">
         <tr>
@@ -53,24 +62,15 @@ const handleDeleteStudent = async (id) => {
         </tr>
       </thead>
 
-      <!-- create a check here that if error does not exist, then show the data -->
-      <!-- otherwise show a nice userfriendly error message in the swal or toastr message -->
-      <tbody>
-        <!-- we have destructured the output from the useStudents, we can use it directly -->
-        <!-- this is other approach we have used -->
+      <tbody v-if="!error">
         <tr
           class="border-b hover:bg-slate-100 transition"
           v-for="({ id, name, email }, i) in students"
           :key="id"
         >
-          <!-- array starts from 0, so we have incremented this -->
-          <!-- i is just a counter, not the actually array id -->
           <td class="py-3 px-4">{{ ++i }}</td>
-
-          <!-- as we have destructued the student, we can use its properties directly -->
           <td class="py-3 px-4">{{ name }}</td>
           <td class="py-3 px-4">{{ email }}</td>
-
           <td class="py-3 px-4 text-center flex justify-center space-x-2">
             <router-link :to="{ name: 'View', params: { id: id } }">
               <button
@@ -79,7 +79,6 @@ const handleDeleteStudent = async (id) => {
                 <EyeIcon class="h-5 w-5" />
               </button>
             </router-link>
-
             <router-link :to="{ name: 'Edit', params: { id: id } }">
               <button
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded shadow transition-all"
@@ -87,7 +86,6 @@ const handleDeleteStudent = async (id) => {
                 <PencilIcon class="h-5 w-5" />
               </button>
             </router-link>
-
             <button
               @click="handleDeleteStudent(id)"
               class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded shadow transition-all"
@@ -96,7 +94,15 @@ const handleDeleteStudent = async (id) => {
             </button>
           </td>
         </tr>
-        <!-- Repeat the above <tr> block for more rows -->
+      </tbody>
+
+      <!-- If error exists, display a message instead of the table rows -->
+      <tbody v-else>
+        <tr>
+          <td colspan="4" class="py-3 px-4 text-center text-red-500 font-semibold">
+            Something went wrong! Please try again.
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>

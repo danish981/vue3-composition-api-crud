@@ -107,6 +107,8 @@ export default function useStudents() {
       console.log(exceptionError);
       error.value = exceptionError;
     }
+
+    
   };
 
   const deleteStudent = async (id) => {
