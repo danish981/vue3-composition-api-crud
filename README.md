@@ -91,9 +91,18 @@ This simple hook script ensures that you always get a warning before pushing cha
 Making request to the server, getting the data and displaying it in the UI by using loops
 
 
-file downloaded offline, the currrent tile is 1:48:43
+
+### What I thing that should be added in this project :
+
+- **Auth system** : User should be logged in to using an API auth or firebase auth to view his data
+- **Roles and permissions** : All users will be assigned a particular role like `admin`, `customer`, enable them to view their own data
+- **More user friendly errors, warnings, success messages** : We will `vue-toastification` package for success messages or error messages, and for prompts we will use swal
+- **Appearance and design** : The design will be more nice and user friendly, it will look like a whole new application and create its pages like home, contact, view, map, privacy policy etc
+- **the students data will not be json-server** : The database will not be json server, we will use firebase or mongodb for this purpose
 
 
-**what we are doing currently** : *adding a new student done with post request*
 
-https://youtu.be/JDcfOVc4Uww?t=4296
+
+
+
+[Youtube Video I'm watching to build this project | Geeks for Geeks](https://youtu.be/JDcfOVc4Uww?t=4296)

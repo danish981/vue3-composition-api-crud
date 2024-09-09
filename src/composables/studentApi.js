@@ -3,7 +3,7 @@ import axios from "axios";
 
 // write compostable function to get all students, the function name should be useStudents, `use(EntityName)`
 export default function useStudents() {
-  // todo : make the url dynamic by adding the port number or endpoint in a seperate file
+  // todo : make the url dynamic by adding the port number or endpoint in a separate file
   const url = "http://localhost:4000/students/";
   const students = ref([]);
   const error = ref(null);
@@ -11,7 +11,7 @@ export default function useStudents() {
   const deleteError = ref("");
 
   const validateIfEmailAlreadyExists = () => {
-    //todo : add validattions for the email
+    //todo : add validations for the email
   };
 
   // todo :we will add the username in the json after, we will expand this application later
@@ -19,7 +19,7 @@ export default function useStudents() {
     // todo : logic for createUsername for student
     // add logic for creating a username for a student from provided name
     // search for existing names in the db
-    // if name found seearch for count, if found, increment the counter and concatenate with name and return the username string
+    // if name found search for count, if found, increment the counter and concatenate with name and return the username string
     // if not found, return the name as the username
   };
 
@@ -70,7 +70,7 @@ export default function useStudents() {
       };
 
       const response = await axios(config);
-      // todo: create validation that name cannot be duplciated if editied or added somehow
+      // todo: create validation that name cannot be duplicated if edited or added somehow
 
       students.value = response.data;
 
@@ -87,7 +87,7 @@ export default function useStudents() {
     students.value = [];
     error.value = null;
 
-    // see the json-server docs for udpating the data
+    // see the json-server docs for updating the data
     try {
       const config = {
         method: "PUT",
@@ -99,7 +99,7 @@ export default function useStudents() {
       };
 
       const response = await axios(config);
-      // todo: create validation that name cannot be duplciated if editied or added somehow
+      // todo: create validation that name cannot be duplicated if edited or added somehow
 
       students.value = response.data;
 

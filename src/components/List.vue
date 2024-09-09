@@ -29,7 +29,7 @@ const handleDeleteStudent = async (id) => {
 
   await getAllStudents();
 
-  // todo : we will use await and delete method here to delete ther user
+  // todo : we will use await and delete method here to delete their user
 };
 </script>
 
